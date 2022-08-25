@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drugs </title>
+    <link rel="stylesheet" href="Aboutus.css">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- <script src="script.js"> </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+        body {
+            font-family: tahoma;
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            /* background-image: url(pcwall.jpg); */
+        }
+        
+        nav {
+            background-image: linear-gradient(250deg, #881313, #140314);
+            padding: 5px 40px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        
+        nav ul li.items {
+            position: relative;
+            width: auto;
+            margin: 0 16px;
+            text-align: center;
+            order: 3;
+        }
+        
+        nav ul li.items:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 5px;
+            height: 2px;
+            width: 100%;
+            background: #33ffff;
+            opacity: 0;
+            transition: all 0.2s linear;
+        }
+        
+        nav ul li.items:hover:after {
+            opacity: 1;
+            bottom: 8px;
+        }
+        
+        nav ul li.logo {
+            flex: 1;
+            color: white;
+            font-size: 23px;
+            font-weight: 600;
+            cursor: default;
+            user-select: none;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            /* transition: .4s; */
+        }
+        
+        nav ul li:hover a {
+            color: #ffb84f;
+        }
+        
+        nav ul li i {
+            font-size: 23px;
+        }
+        
+        nav ul li.btn {
+            display: none;
+        }
+        
+        nav ul li.btn.hide i:before {
+            content: '\f00d';
+        }
+        
+        @media all and (max-width: 900px) {
+            nav {
+                padding: 5px 30px;
+            }
+            nav ul li.items {
+                width: 100%;
+                display: none;
+            }
+            nav ul li.items.show {
+                display: block;
+            }
+            nav ul li.btn {
+                display: block;
+            }
+            nav ul li.items:hover {
+                border-radius: 5px;
+                box-shadow: inset 0 0 5px #169e43, inset 0 0 10px #977811;
+            }
+            nav ul li.items:hover:after {
+                opacity: 0;
+            }
+        }
+        
+        .search input[type=text] {
+            width: 212px;
+            height: 34px;
+            margin-right: -8px;
+            border-radius: 4px;
+            border: none;
+        }
+        
+        .search {
+            float: right;
+            margin: 7px;
+        }
+        
+        .search button {
+            background-color: #e8eff5;
+            color: #e82e2e;
+            float: right;
+            margin-left: 2px;
+            padding: 5px 10px;
+            margin-right: 16px;
+            font-size: 16px;
+            border-radius: 4px;
+            box-shadow: aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media screen and (max-width: 354px) {
+            .search button {
+                background-color: #e8eff5;
+                color: #e82e2e;
+                float: right;
+                margin-left: 2px;
+                padding: 5px 10px;
+                margin-right: 8px;
+                margin-bottom: -55px;
+                margin-top: -34px;
+                font-size: 16px;
+                border-radius: 4px;
+                box-shadow: aliceblue;
+                border: none;
+                cursor: pointer;
+            }
+            .search input[type=text] {
+                width: 117px;
+                height: 34px;
+                margin-right: -34px;
+                border-radius: 4px;
+                border: none;
+                margin-right: 40px;
+            }
+        }
+        
+        .btn-secondary {
+            color: #fff;
+            background-color: #491102;
+            border-color: #6c757d;
+        }
+        
+        .cont {
+            /* background-image: url(Untitled.png); */
+            height: 43.9em;
+        }
+        /* curouse  */
+        
+        .carousel-inner {
+            height: auto;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            z-index: 1;
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .absolute-div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .carousel-caption h3 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .item {
+            position: relative;
+        }
+        /* coursel  */
+        
+        .d-table {
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+        
+        .d-tablecell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .custom-btn1 {
+            background-color: #ff3547;
+            color: #fff;
+            border: 1px solid #ff3547;
+            display: inline-block;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+        
+        .custom-btn1:hover {
+            background-color: transparent;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        footer {
+            position: relative;
+            background: linear-gradient(250deg, #881313, #140314);
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 100px;
+            height: 1px;
+            width: 100%;
+            background: #AFAFB6;
+        }
+        
+        footer .content {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 40px 40px 40px;
+        }
+        
+        footer .content .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .content .top .logo-details {
+            color: #fff;
+            font-size: 30px;
+        }
+        
+        .content .top .media-icons {
+            display: flex;
+        }
+        
+        .content .top .media-icons a {
+            height: 40px;
+            width: 40px;
+            margin: 0 8px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+        
+        .top .media-icons a:nth-child(1) {
+            background: #4267B2;
+        }
+        
+        .top .media-icons a:nth-child(1):hover {
+            color: #4267B2;
+            background: #fff;
+        }
+        
+        .top .media-icons a:nth-child(2) {
+            background: #1DA1F2;
+        }
+        
+        .top .media-icons a:nth-child(2):hover {
+            color: #1DA1F2;
+            background: #fff;
+        }
+        
+        .top .media-icons a:nth-child(3) {
+            background: #E1306C;
+        }
+        
+        .top .media-icons a:nth-child(3):hover {
+            color: #E1306C;
+            background: #fff;
+        }
+        
+        .top .media-icons a:nth-child(4) {
+            background: #0077B5;
+        }
+        
+        .top .media-icons a:nth-child(4):hover {
+            color: #0077B5;
+            background: #fff;
+        }
+        
+        .top .media-icons a:nth-child(5) {
+            background: #FF0000;
+        }
+        
+        .top .media-icons a:nth-child(5):hover {
+            color: #FF0000;
+            background: #fff;
+        }
+        
+        footer .content .link-boxes {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        footer .content .link-boxes .box {
+            width: calc(100% / 5 - 10px);
+        }
+        
+        .content .link-boxes .box .link_name {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .link-boxes .box .link_name::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 2px;
+            width: 35px;
+            background: #fff;
+        }
+        
+        .content .link-boxes .box li {
+            margin: 6px 0;
+            list-style: none;
+        }
+        
+        .content .link-boxes .box li a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.4s ease
+        }
+        
+        .content .link-boxes .box li a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .content .link-boxes .input-box {
+            margin-right: 55px;
+        }
+        
+        .link-boxes .input-box input {
+            height: 40px;
+            width: calc(100% + 55px);
+            outline: none;
+            border: 2px solid #AFAFB6;
+            background: #140B5C;
+            border-radius: 4px;
+            padding: 0 15px;
+            font-size: 15px;
+            color: #fff;
+            margin-top: 5px;
+        }
+        
+        .link-boxes .input-box input::placeholder {
+            color: #AFAFB6;
+            font-size: 16px;
+        }
+        
+        .link-boxes .input-box input[type="button"] {
+            background: #fff;
+            color: #140B5C;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 4px 0;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .input-box input[type="button"]:hover {
+            opacity: 1;
+        }
+        
+        footer .bottom-details {
+            width: 100%;
+            background: #134a43;
+        }
+        
+        footer .bottom-details .bottom_text {
+            max-width: 1250px;
+            margin: auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bottom-details .bottom_text span,
+        .bottom-details .bottom_text a {
+            font-size: 14px;
+            font-weight: 300;
+            color: #fff;
+            opacity: 0.8;
+            text-decoration: none;
+        }
+        
+        .bottom-details .bottom_text a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .bottom-details .bottom_text a {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 900px) {
+            footer .content .link-boxes {
+                flex-wrap: wrap;
+            }
+            footer .content .link-boxes .input-box {
+                width: 40%;
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            footer {
+                position: relative;
+            }
+            .content .top .logo-details {
+                font-size: 26px;
+            }
+            .content .top .media-icons a {
+                height: 35px;
+                width: 35px;
+                font-size: 14px;
+                line-height: 35px;
+            }
+            footer .content .link-boxes .box {
+                width: calc(100% / 3 - 10px);
+            }
+            footer .content .link-boxes .input-box {
+                width: 60%;
+            }
+            .bottom-details .bottom_text span,
+            .bottom-details .bottom_text a {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 520px) {
+            footer::before {
+                top: 145px;
+            }
+            footer .content .top {
+                flex-direction: column;
+            }
+            /*google translate Dropdown */
+            #google_translate_element select {
+                background: #f6edfd;
+                color: #383ffa;
+                border: none;
+                border-radius: 3px;
+                padding: 6px 6px
+            }
+            /*google translate link | logo */
+            .goog-logo-link {
+                display: none!important;
+            }
+            .goog-te-gadget {
+                color: transparent!important;
+            }
+            /* google translate banner-frame */
+            .goog-te-banner-frame {
+                display: none !important;
+            }
+            #goog-gt-tt,
+            .goog-te-balloon-frame {
+                display: none !important;
+            }
+            .goog-text-highlight {
+                background: none !important;
+                box-shadow: none !important;
+            }
+            body {
+                top: 0!important;
+            }
+            .content .top .media-icons {
+                margin-top: 16px;
+            }
+            footer .content .link-boxes .box {
+                width: calc(100% / 2 - 10px);
+            }
+            footer .content .link-boxes .input-box {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="logo">Department Of Sports</li>
+            <li class="items"><a href="index.html">Home</a></li>
+            <li class="items"><a href="news.html">News</a></li>
+            <li class="items"><a href="drugs.html">Drugs</a></li>
+            <li class="items"><a href="resources.html">Resources</a></li>
+            <li class="items"><a href="TUemain.html">TUE</a></li>
+            <li class="items"><a href="AboutUs.html">About Us</a></li>
+            <li class="items"><a href="login.html">Athlete</a></li>
+            <li class="items"><a href="login.html">Doctor</a></li>
+
+
+
+
+
+            <li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+
+
+
+            <div class="row">
+                <div class="col-md-12" style="font-size:1.5em;">
+                    <div id='google_translate_element' />
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </ul>
+    </nav>
+
+
+
+    <div class="item_name">
+        <form>
+            <input type="search" name="item_name" placeholder="search banned drugs" class="form-control form-control-borderless">
+            <button>
+       <i class="fa fa-search" style="font-size: 18px;">
+       </i>
+    </button>
+        </form>
+    </div>
+
+
+    <div class="sec3">
+        <!-- <img src="#" alt=""> -->
+        <div class="news">
+            <h1>Prohibited Enhancement Drugs </h1>
+        </div>
+
+        <div class="brief" style="     margin-top: 4.5em;
+    padding: 1.5em;
+    border: 2px solid #580000;
+    box-sizing: border-box;
+    box-shadow: 3px 0px 3px 5px #900808;">
+
+            <div class="row">
+
+
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="nm{{product.id}}" class="card-title">
+
+                                <p class="card-text">stanozol</p>
+                                <a href="detail.html" class="btn btn-info">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="nm{{product.id}}" class="card-title">
+
+                                <p class="card-text">Androstenedione</p>
+                                <a href="detail - Copy (3).html" class="btn btn-info">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="nm{{product.id}}" class="card-title">
+
+                                <p class="card-text">tetrahydrogestrionone</p>
+                                <a href="detail - Copy (5).html" class="btn btn-info">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="nm{{product.id}}" class="card-title">
+
+                                <p class="card-text">Niciotin,caffeine</p>
+                                <a href="detail - Copy (2).html" class="btn btn-info">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="nm{{product.id}}" class="card-title">
+
+                                <p class="card-text">Boldenone</p>
+                                <a href="detail - Copy (4).html" class="btn btn-info">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+
+
+
+                    <span class="logo_name">Department of Sports And Ministry of Youth Affairs & Sports </span>
+                </div>
+
+
+                <div class="media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">ANTI-DOPING WEBSITES</li>
+                    <li><a href="https://www.wada-ama.org/en/resources/world-anti-doping-program/world-anti-doping-code">WADA</a></li>
+                    <li><a href="https://www.nadaindia.org/">NADA</a></li>
+                    <li><a href="https://www.usada.org/">USADA</a></li>
+
+                </ul>
+                <ul class="box">
+                    <li class="link_name">DRUGS WEBSITES</li>
+                    <li><a href="https://cdsco.gov.in/opencms/opencms/en/Home/">Central Drug Control of India</a></li>
+                    <li><a href="https://www.lgcstandards.com/GB/en/Pharmaceutical/Pharmaceutical-proficiency-testing/Pharmaceutical-PHARMASSURE-/cat/279508?gclid=CjwKCAjw6fyXBhBgEiwAhhiZsiOsY_IfUqX9yBydl4jf1SlG9p2UR-r_gmjnkEmyThUmSRAXGz0p6BoCaeIQAvD_BwE">Central Drug Testing Labs</a></li>
+
+                </ul>
+                <ul class="box">
+                    <li class="link_name">QUICKUPS </li>
+                    <li><a href="https://www.wada-ama.org/en/athletes-support-personnel/therapeutic-use-exemptions-tues">Therapeutic Use Exemption </a></li>
+                    <li><a href="https://www.wada-ama.org/en/prohibited-list">Prohibited Drugs </a></li>
+                    <li><a href="#">List of Banned Drugs  </a></li>
+
+                </ul>
+                <ul class="box">
+                    <li class="link_name">YOUTHUPS</li>
+                    <li><a href="https://yas.nic.in/">Ministry of Youth Affair </a></li>
+                    <li><a href="https://kheloindia.gov.in/">Khelo India</a></li>
+                    <li><a href="https://fitindia.gov.in/">Fit India</a></li>
+
+                </ul>
+                <ul class="box input-box">
+                    <li class="link_name">Contact Us</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2022 <a href="#">Bug Hunter Sqadss</a>All rights reserved</span>
+                <span class="policy_terms">
+              <a href="#">Privacy policy</a>
+              <a href="#">Terms & condition</a>
+            </span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('.btn').click(function() {
+                $('.items').toggleClass("show");
+                $('ul li').toggleClass("hide");
+            });
+        });
+
+        var myCarousel = document.querySelector('#carouselExampleSlidesOnly')
+        var carousel = new bootstrap.Carousel(carouselExampleSlidesOnly, {
+            interval: 5000,
+        })
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: 'true',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+        }
+    </script>
+
+
+
+</body>
+
+</html>
